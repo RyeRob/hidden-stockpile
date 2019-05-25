@@ -1,0 +1,21 @@
+.nav {
+    top:0;
+    left:0;
+    height:100px;
+    width:100vw;
+    background: #CCC0AE;
+    padding:0;
+    margin:0;
+    display: flex;
+    align-items: center;
+}
+
+.nav > li {
+    display:inline;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+.nav > li > a {
+    text-decoration: none;
+}
