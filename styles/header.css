@@ -1,8 +1,6 @@
-.nav {
+.nav-bar {
     top:0;
-    left:0;
     height:100px;
-    width:100vw;
     background:#CCC0AE;
     padding:0;
     margin:0;
@@ -10,20 +8,33 @@
     align-items:center;
 }
 
-.nav > ul {
-    font-size: 1.2rem;
+.nav-bar > ul {
+    font-size:1.2rem;
     margin-left:4rem;
+    display: inline-block;
 }
 
-.nav > ul > li {
+.nav-bar > ul > li {
     display:inline;
     padding-left:3rem;
     padding-right:3rem;
 }
-
-.nav > ul > li > a {
+.nav-bar > ul > li > a {
     text-decoration:none;
     color:#000;
+}
+
+.nav-bar > ul > li > a:hover{
+    color:#039be5;
+}
+
+.nav-main {
+    left:0;
+}
+
+.nav-login{
+    right:0;
+    position:absolute;
 }
 
 #logo {
