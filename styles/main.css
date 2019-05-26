@@ -2,4 +2,46 @@
     box-sizing:border-box;
     padding:0;
     margin:0;
+    font-family: Montserrat, Helvetica, Arial, sans-serif;
+}
+/* Login Page */
+.login {
+    width:40vw;
+    margin:0 auto;
+}
+.login > div {
+    padding-top:5rem;
+}
+.login > input {
+    padding: 3rem;
+}
+.login > input:hover {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+}
+#cancel {
+    display:inline;
+    padding: 0.6rem 1rem;
+    margin-left:1rem;
+}
+
+.login-title {
+    text-align:center;
+    padding-top:3rem;
+    padding-bottom:6rem;
+    font-size:3rem;
+}
+.login button {
+    background-color:#009BE5;
+}
+.login > div > a {
+    background-color:#009BE5;
+}
+#username:focus {
+    border-bottom: 1px solid #009BE5;
+    box-shadow: 0 1px 0 0 #009BE5;
+}
+#password:focus {
+    border-bottom: 1px solid #009BE5;
+    box-shadow: 0 1px 0 0 #009BE5;
 }

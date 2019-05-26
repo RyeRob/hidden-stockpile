@@ -3,19 +3,32 @@
     left:0;
     height:100px;
     width:100vw;
-    background: #CCC0AE;
+    background:#CCC0AE;
     padding:0;
     margin:0;
-    display: flex;
-    align-items: center;
+    display:flex;
+    align-items:center;
 }
 
-.nav > li {
+.nav > ul {
+    font-size: 1.2rem;
+    margin-left:4rem;
+}
+
+.nav > ul > li {
     display:inline;
-    padding-left: 3rem;
-    padding-right: 3rem;
+    padding-left:3rem;
+    padding-right:3rem;
 }
 
-.nav > li > a {
-    text-decoration: none;
+.nav > ul > li > a {
+    text-decoration:none;
+    color:#000;
+}
+
+#logo {
+    width:175px;
+    height:auto;
+    padding-left:2rem;
+    padding-right:1rem;
 }
