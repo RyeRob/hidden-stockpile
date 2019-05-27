@@ -1,0 +1,53 @@
+#enterCardsForms {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+#enterCardsForms h1 {
+  text-align: center;
+  font-size: 38px;
+}
+
+#cardFieldForm {
+  margin: 0 auto;
+  align-self: center;
+}
+
+#fieldNum {
+  width: 10%;
+}
+
+#addFieldForm label {
+  margin: 0 10px 0 0;
+  font-size: 18px;
+  color: black;
+}
+
+.addCardBtn,
+.deleteCardBtn {
+  border: thin solid #006eb39d;
+  border-radius: 50%;
+  color: #fff;
+  background: #006db3;
+  width: 30px;
+  height: 30px;
+  padding: 5px 5px 10px 4px;
+  margin: 0 0 0 10px;
+  font-size: 30px;
+  line-height: 0;
+}
+
+.deleteCardBtn {
+  background: red;
+}
+
+#cardName {
+  width: 400px;
+}
+
+#cardNum {
+  width: 40px;
+}
