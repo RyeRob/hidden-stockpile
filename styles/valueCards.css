@@ -51,3 +51,8 @@
 #cardNum {
   width: 40px;
 }
+
+#cardSet {
+    display:inline;
+    max-width:20%;
+}

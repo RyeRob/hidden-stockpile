@@ -8,7 +8,7 @@ include(WEB_ROOT . '/views/partials/menu.php');
     <h1>Enter Cards</h1>
     <form action="" method="post" id="cardFieldForm" name="cardFieldForm">
         <div id="formRow">
-            <input type="text" id="cardName" name="cardName" />
+            <input type="text" id="cardName" name="cardName"  />
             <select id="cardSet" name="cardSet" autocomplete="off">
                 <option value="a">A</option>
                 <option value="b">B</option>
