@@ -3,6 +3,7 @@
     <ul class="nav-main">
         <li><a href="/">Home</a></li>
         <li><a href="/views/about.php">About</a></li>
+        <li><a href="/views/valueCards.php">Value Cards</a></li>
         <li><a href="/views/contact.php">Contact</a></li>
     </ul>
     <ul class="nav-login">

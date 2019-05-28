@@ -4,9 +4,13 @@
     margin:0;
     font-family: Montserrat, Helvetica, Arial, sans-serif;
 }
+
+body {
+    background-color:#fff3e0;
+}
+
 .wrap {
     min-height:100vh;
-    background-color:#fff3e0;
 }
 /* Login Page */
 .login {
