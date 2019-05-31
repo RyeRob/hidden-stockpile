@@ -1,6 +1,10 @@
 <?php
 class Database
 {
+    // private static $user = 'delanh_stockpile';
+    // private static $pass = '9#q8nJ*b@8^b';
+    // private static $dsn = 'mysql:host=198.46.191.78; dbname=hiddenstockpile';
+
     private static $user = 'root';
     private static $pass = '';
     private static $dsn = 'mysql:host=localhost; dbname=hiddenstockpile';
