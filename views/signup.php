@@ -24,7 +24,7 @@ include( WEB_ROOT.'/views/partials/menu.php' );
         </div>
         <div>
             <label for="password">Password: </label>
-            <input type="password" id="password" name="password">
+            <input type="password"  id="password" name="password">
         </div>
         <div>
             <button type="button" class="btn">Sign Up</button>
