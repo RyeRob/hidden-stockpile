@@ -25,5 +25,6 @@ $(document).ready(function() {
       $("#formRow" + buttonId).remove();
     });
   });
+    // initialize dropdown menu
+    $('select').formSelect();
 });
-
