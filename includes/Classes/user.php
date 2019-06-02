@@ -16,8 +16,8 @@ class User
 
         $count = $pst->execute();
         return $count;
-    }
 
+    }
     //Edit a user
     public function editUser($id, $fname, $lname, $email, $username, $password, $db)
     {

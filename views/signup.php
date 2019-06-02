@@ -5,11 +5,11 @@ include( WEB_ROOT.'/views/partials/menu.php' );
 ?>
 <div class="wrap">
     <h1 class="login-title">Register</h1>
-    <div class="center-align">
-    <?=$_SESSION['ErrorMessage']?>
+    <div class="center-align red-text text-accent-4">
+    <?php if(isset($_SESSION['ErrorMessage'])){ echo $_SESSION['ErrorMessage'];}?>
     </div>
     <div class="center-align light-green-text text-darken-4">
-    <?=$_SESSION['SuccessMessage']?>
+    <?php if(isset($_SESSION['SuccessMessage'])){ echo $_SESSION['SuccessMessage'];}?>    
     </div>
     <form action="../controllers/addUser.php" method="post" name="login" class="login">
         <div>
