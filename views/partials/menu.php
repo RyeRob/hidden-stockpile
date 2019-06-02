@@ -11,7 +11,7 @@
         <?php
             if(isset($_SESSION['id']))
             {
-                echo "<li>Welcome, ".$_SESSION['username']."</li>";
+                echo "<li><a href='/views/profile.php'>Welcome, ".$_SESSION['username']."</a></li>";
                 echo "<li><a href='/controllers/logout.php'>Logout</a></li>";
             }
             else
