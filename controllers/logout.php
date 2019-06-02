@@ -12,9 +12,9 @@ if(isset($_SESSION['id']))
     unset($_SESSION['username']);
     
     session_destroy();
-    header("location: ../");
+    header("location: /");
 }
 else
 {
-    header("location: ../views/login.php");
+    header("location: /views/login.php");
 }

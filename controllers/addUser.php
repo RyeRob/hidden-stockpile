@@ -1,8 +1,9 @@
 <?php
 //Start our session
 session_start();
-include '../includes/Classes/database.php';
-include '../includes/Classes/user.php';
+define( 'WEB_ROOT', $_SERVER['DOCUMENT_ROOT'] );
+include(WEB_ROOT.'/includes/Classes/database.php');
+include(WEB_ROOT.'/includes/Classes/user.php');
 
 //Messages when there is an error signing up or if sign up is successful
 $_SESSION['ErrorMessage'] = '';
@@ -22,17 +23,17 @@ if (isset($_POST['signup'])) {
 	if($_POST['fname'] == "" || $_POST['lname'] == "" || $_POST['email'] == "" || $_POST['username'] == "" || $_POST['password'] == "")
 	{
 		$_SESSION['ErrorMessage'] = "Fields cannot be blank";
-        header('Location: ../views/signup.php');
+        header('Location: /views/signup.php');
 	}
 	elseif(!preg_match($pattern, $_POST['repeatPassword']))
 	{
 		$_SESSION['ErrorMessage'] = "Password must be letters or numbers only and be between 3 and 13 characters long";
-        header('Location: ../views/signup.php');		
+        header('Location: /views/signup.php');		
 	}
 	elseif(!filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL))
 	{
 		$_SESSION['ErrorMessage'] = "Please enter a valid email";
-        header('Location: ../views/signup.php');
+        header('Location: /views/signup.php');
 	}
 	//If passwords match, put info into variables
 	elseif($_POST['password'] == $_POST['repeatPassword'])
@@ -57,23 +58,23 @@ if (isset($_POST['signup'])) {
                 if($c)
                 {
                     $_SESSION['SuccessMessage'] = "Registration Successful!";
-                    header('Location: ../views/signup.php');
+                    header('Location: /views/signup.php');
                 }
                 else
                 {
                     $_SESSION['ErrorMessage'] = "Registration Failed.";
-                    header('Location: ../views/signup.php');
+                    header('Location: /views/signup.php');
                 }
 			}
 			else
 			{
 				$_SESSION['ErrorMessage'] = "User already exists";
-				header('Location: ../views/signup.php');
+				header('Location: /views/signup.php');
 			}
 	}
 	else
 	{
 		$_SESSION['ErrorMessage'] = "Passwords do not match";
-        header('Location: ../views/signup.php');
+        header('Location: /views/signup.php');
 	}
 }
