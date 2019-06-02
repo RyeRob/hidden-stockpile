@@ -1,8 +1,9 @@
 <?php
 //Start our session
 session_start();
-include '../includes/Classes/database.php';
-include '../includes/Classes/user.php';
+define( 'WEB_ROOT', $_SERVER['DOCUMENT_ROOT'] );
+include(WEB_ROOT.'/includes/Classes/database.php');
+include(WEB_ROOT.'/includes/Classes/user.php');
 
 //Messages when there is an error logging in or if login is successful
 $_SESSION['ErrorMessage'] = '';
@@ -29,7 +30,7 @@ if (isset($_POST['login']))
     {
         //User doesn't exist
         $_SESSION['ErrorMessage'] = "User does not exist";
-        header('Location: ../views/login.php');
+        header('Location: /views/login.php');
     }
     else
     {
@@ -51,7 +52,7 @@ if (isset($_POST['login']))
         else
         {
             $_SESSION['ErrorMessage'] = "Wrong username or password";
-            header('Location: ../views/login.php');
+            header('Location: /views/login.php');
         }
     }
 

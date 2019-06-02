@@ -11,7 +11,7 @@ include( WEB_ROOT.'/views/partials/menu.php' );
     <div class="center-align light-green-text text-darken-4">
     <?php if(isset($_SESSION['SuccessMessage'])){ echo $_SESSION['SuccessMessage'];}?>    
     </div>
-    <form action="../controllers/addUser.php" method="post" name="login" class="login">
+    <form action="/controllers/addUser.php" method="post" name="login" class="login">
         <div>
             <label for="username">First Name: </label>
             <input type="text" id="fname" name="fname">
