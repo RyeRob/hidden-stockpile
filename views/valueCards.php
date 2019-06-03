@@ -26,7 +26,7 @@ include(WEB_ROOT . '/views/partials/menu.php');
             </div>
 
 
-            <button type="button" class="addCardBtn btn-floating btn-small waves-effect waves-light blue"><i class="material-icons">+</i></button>
+            <button type="button" class="addCardBtn btn-floating btn-small waves-effect waves-light"><i class="material-icons">+</i></button>
         </div>
         <button type="submit" name="submitCardsBtn" class="btn waves-effect waves-light" id="submitCardsBtn">Submit</button>
     </form>

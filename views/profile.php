@@ -1,7 +1,9 @@
 <?php
-define( 'WEB_ROOT', $_SERVER['DOCUMENT_ROOT'] );
-include( WEB_ROOT.'/views/partials/header.php' );
-include( WEB_ROOT.'/views/partials/menu.php' );
+define('WEB_ROOT', $_SERVER['DOCUMENT_ROOT']);
+include(WEB_ROOT . '/views/partials/header.php');
+include(WEB_ROOT . '/views/partials/menu.php');
+require_once "../includes/Classes/collection.php";
+require_once "../includes/Classes/database.php";
 ?>
 <div class="row wrap">
     <div class="col s12">
@@ -20,14 +22,14 @@ include( WEB_ROOT.'/views/partials/menu.php' );
                         <h3>Top Owned</h3>
                         <table class="container">
                             <thead>
-                            <tr>
-                                <th>Card Name</th>
-                                <th>Change</th>
-                            </tr>
+                                <tr>
+                                    <th>Card Name</th>
+                                    <th>Change</th>
+                                </tr>
                             </thead>
                             <tbody>
                                 <?php //foreach loop
-                                    echo 
+                                echo
                                     '<tr>
                                         <td>Hidden Stockpile</td>
                                         <td>$0.50</td>
@@ -42,14 +44,14 @@ include( WEB_ROOT.'/views/partials/menu.php' );
                         <h3>Top Watching</h3>
                         <table class="container">
                             <thead>
-                            <tr>
-                                <th>Card Name</th>
-                                <th>Change</th>
-                            </tr>
+                                <tr>
+                                    <th>Card Name</th>
+                                    <th>Change</th>
+                                </tr>
                             </thead>
                             <tbody>
                                 <?php //foreach loop
-                                    echo 
+                                echo
                                     '<tr>
                                         <td>Hidden Stockpile</td>
                                         <td>$0.50</td>
@@ -58,54 +60,39 @@ include( WEB_ROOT.'/views/partials/menu.php' );
                             </tbody>
                         </table>
                     </div>
-                </div>      
+                </div>
             </div>
         </div>
     </div>
     <div id="collection-tab" class="col s12 profile-tab">
         <h2>Collection</h2>
-        <table class="container profile-list z-depth-2">
-            <thead>
-            <tr>
-                <th>Card Name</th>
-                <th>Set</th>
-                <th>Price</th>
-            </tr>
-            </thead>
-            <tbody>
+        <table id="collection-table" class="container profile-list z-depth-2">
+            
                 <?php //foreach loop
-                    echo 
-                    '<tr>
-                        <td>Hidden Stockpile</td>
-                        <td>Aether Revolt</td>
-                        <td>$0.50</td>
-                    </tr>'
+
+               // include "../controllers/collection-controller.php";
+
                 ?>
-            </tbody>
+          
         </table>
     </div>
     <div id="watchlist-tab" class="col s12 profile-tab">
-    <h2>Watch List</h2>
+        <h2>Watch List</h2>
         <table class="container profile-list z-depth-2">
             <thead>
-            <tr>
-                <th>Card Name</th>
-                <th>Set</th>
-                <th>Price</th>
-            </tr>
+                <tr>
+                    <th>Card Name</th>
+                    <th>Set</th>
+                    <th>Price</th>
+                </tr>
             </thead>
             <tbody>
                 <?php //foreach loop
-                    echo 
-                    '<tr>
-                        <td>Hidden Stockpile</td>
-                        <td>Aether Revolt</td>
-                        <td>$0.50</td>
-                    </tr>'
+
                 ?>
             </tbody>
         </table>
     </div>
 </div>
 
-<?php include( WEB_ROOT.'/views/partials/footer.php' ); ?>
+<?php include(WEB_ROOT . '/views/partials/footer.php'); ?>
