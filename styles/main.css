@@ -1,4 +1,11 @@
 *{
+    /* Custom Properties */
+    --light-blue:#63ccff;
+    --blue:#039be5;
+    --dark-blue: #006db3;
+    --sand:#fff3e0;
+    --dark-sand:#ccc0ae;
+    /* General Styles */
     box-sizing:border-box;
     padding:0;
     margin:0;
@@ -8,14 +15,14 @@
 body {
     background-color:#fff3e0;
 }
-
 .wrap {
     min-height:100vh;
 }
-/* Login Page */
+/* --- Login Style --- */
 .login {
     width:35vw;
     margin:0 auto;
+    padding-bottom:5rem;
 }
 .login > div {
     padding-top:2rem;
@@ -24,8 +31,8 @@ body {
     padding: 3rem;
 }
 .login > input:hover {
-    border-bottom: 1px solid #000;
-    box-shadow: 0 1px 0 0 #000;
+    border-bottom: 1px solid var(--light-blue);
+    box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
 }
 
 #cancel {
@@ -43,27 +50,79 @@ body {
 }
 
 .login button {
-    background-color:#009BE5;
+    background-color:var(--blue);
+}
+
+.login > div > label {
+    color:#000;
 }
 
 .login > div > a {
-    background-color:#009BE5;
+    background-color:var(--blue);
 }
 
 .login button:hover {
-    background-color:#006db3;
+    background-color: var(--dark-blue);
 }
 
 .login > div > a:hover {
-    background-color:#006db3;
+    background-color: var(--dark-blue);
 }
 
-#username:focus {
-    border-bottom: 1px solid #009BE5;
-    box-shadow: 0 1px 0 0 #009BE5;
+.input:focus {
+    border-bottom: 1px solid var(--blue);
+    box-shadow: 0 1px 0 0 var(--blue);
 }
 
-#password:focus {
-    border-bottom: 1px solid #009BE5;
-    box-shadow: 0 1px 0 0 #009BE5;
+#fname:focus, #lname:focus, #email:focus, #username:focus, #password:focus {
+    border-bottom: 1px solid var(--blue);
+    box-shadow: 0 1px 0 0 var(--blue);
+}
+/* --- Profile Style --- */
+.profile-list {
+    background-color:#fff;
+    
+}
+/* Tabs */
+.container h2 {
+    text-align:center;
+}
+.row .col {
+    padding:0;
+}
+.tabs .tab a {
+    color:var(--blue);
+} /*Black color to the text*/
+
+.tabs .tab a:hover {
+    background-color:rgba(0, 0, 0, 0.1);
+    color:var(--light-blue);
+} /*Text color on hover*/
+
+.tabs .tab a.active {
+    color:var(--blue);
+} /*Background and text color when a tab is active*/
+
+.tabs .tab a:focus.active {
+    background-color: #fff;
+}
+
+.tabs .indicator {
+    background-color:var(--light-blue);
+} /*Color of underline*/
+.profile-tab > h2 {
+    text-align:center;
+    padding-bottom:5rem;
+}
+
+/* Dashboard */
+.dash-list {
+    background-color:#fff;
+    height:500px;
+    margin:5rem;
+    text-align:center;
+}
+.dash-list h3 {
+    font-size:1.8rem;
+    padding-top:1rem;
 }

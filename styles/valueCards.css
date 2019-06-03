@@ -34,7 +34,6 @@
   background: #006db3;
   width: 30px;
   height: 30px;
-  padding: 5px 5px 10px 4px;
   margin: 0 0 0 10px;
   font-size: 30px;
   line-height: 0;
@@ -52,7 +51,17 @@
   width: 40px;
 }
 
-#cardSet {
-    display:inline;
-    max-width:20%;
+.set-dropdown {
+  width: 300px;
+  display: inline-block;
+}
+
+#foil-label {
+  margin: 0;
+  padding: 0 0 0 20px;
+}
+
+#foil-container {
+  display: inline;
+  margin: 0 0 0 10px;
 }

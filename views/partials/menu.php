@@ -5,9 +5,20 @@
         <li><a href="/views/about.php">About</a></li>
         <li><a href="/views/valueCards.php">Value Cards</a></li>
         <li><a href="/views/contact.php">Contact</a></li>
+        <li><a href="/views/profile.php">Profile</a></li>
     </ul>
     <ul class="nav-login">
-        <li><a href="/views/login.php">Log In</a></li>
-        <li><a href="/views/signup.php">Sign Up</a></li>
+        <?php
+            if(isset($_SESSION['id']))
+            {
+                echo "<li><a href='/views/profile.php'>Welcome, ".$_SESSION['username']."</a></li>";
+                echo "<li><a href='/controllers/logout.php'>Logout</a></li>";
+            }
+            else
+            {
+                echo "<li><a href='/views/login.php'>Log In</a></li>";
+                echo "<li><a href='/views/signup.php'>Sign Up</a></li>";
+            }
+        ?>
     </ul>
 </div>

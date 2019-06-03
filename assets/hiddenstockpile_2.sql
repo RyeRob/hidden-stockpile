@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 31, 2019 at 06:35 AM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.2
+-- Generation Time: Jun 02, 2019 at 10:51 PM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -61914,6 +61914,31 @@ INSERT INTO `cards_sets` (`id`, `card_id`, `set_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `card_collection`
+--
+
+CREATE TABLE `card_collection` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `set` varchar(50) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `foil` tinyint(1) NOT NULL,
+  `price` decimal(10,0) NOT NULL,
+  `watch_list` tinyint(1) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `card_collection`
+--
+
+INSERT INTO `card_collection` (`id`, `name`, `set`, `quantity`, `foil`, `price`, `watch_list`, `user_id`) VALUES
+(1, 'test', 'test', 3, 1, '1', 0, 1),
+(2, 'tert', 'te', 4, 1, '1', 1, 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `sets`
 --
 
@@ -62378,6 +62403,28 @@ INSERT INTO `sets` (`id`, `name`, `code`, `isonlineonly`) VALUES
 (447, 'Ixalan', 'XLN', 0),
 (448, 'Zendikar', 'ZEN', 0);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(100) NOT NULL,
+  `fname` varchar(100) NOT NULL,
+  `lname` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `fname`, `lname`, `email`, `username`, `password`) VALUES
+(1, 'Justin', 'Coutinho', 'jc@live.ca', 'justi', '$2y$10$aRUzWOOf3k4fPOouv4BnCuYovMv87R786VndoEpFZzzaE.NqHg8mq');
+
 --
 -- Indexes for dumped tables
 --
@@ -62397,9 +62444,22 @@ ALTER TABLE `cards_sets`
   ADD KEY `cxs_fk_sets` (`set_id`);
 
 --
+-- Indexes for table `card_collection`
+--
+ALTER TABLE `card_collection`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `users_id` (`user_id`);
+
+--
 -- Indexes for table `sets`
 --
 ALTER TABLE `sets`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -62419,10 +62479,22 @@ ALTER TABLE `cards_sets`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42155;
 
 --
+-- AUTO_INCREMENT for table `card_collection`
+--
+ALTER TABLE `card_collection`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `sets`
 --
 ALTER TABLE `sets`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=449;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables

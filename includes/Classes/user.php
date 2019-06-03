@@ -2,36 +2,39 @@
 class User
 {
     //Add a new user
-    public function addUser($username, $password, $email, $avatar, $db)
+    public function addUser($fname, $lname, $email, $username, $password, $db)
     {
-        $sql = "INSERT INTO users (username, password, email, avatar)
-            VALUES (:username, :password, :email, :avatar)";
+        $sql = "INSERT INTO users (fname, lname, email, username, password)
+            VALUES (:fname, :lname, :email, :username, :password)";
         $pst = $db->prepare($sql);
 
+        $pst->bindParam(':fname', $fname);
+        $pst->bindParam(':lname', $lname);
+        $pst->bindParam(':email', $email);
         $pst->bindParam(':username', $username);
         $pst->bindParam(':password', $password);
-        $pst->bindParam(':email', $email);
-        $pst->bindParam(':avatar', $avatar);
 
         $count = $pst->execute();
         return $count;
-    }
 
+    }
     //Edit a user
-    public function editUser($id, $username, $password, $email, $avatar, $db)
+    public function editUser($id, $fname, $lname, $email, $username, $password, $db)
     {
         $sql = "UPDATE users
-                SET username = :username,
-                password = :password,
+                SET fname = :fname,
+                lname = :lname, 
                 email = :email,
-                avatar = :avatar
+                username = :username,
+                password = :password
                 WHERE id = :id"; 
         $pstm = $db->prepare($sql);
         $pstm->bindParam(':id', $id);
+        $pstm->bindParam(':fname', $fname);
+        $pstm->bindParam(':lname', $lname);
+        $pstm->bindParam(':email', $email);
         $pstm->bindParam(':username', $username);
         $pstm->bindParam(':password', $password);
-        $pstm->bindParam(':email', $email);
-        $pstm->bindParam(':avatar', $avatar);
         $pstm->execute();
 
         //count

@@ -20,8 +20,7 @@ class Database
                 self::$dbcon->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             } catch (PDOException $e) {
                 $errorMessage = $e->getMessage();
-                // include 'error.php';
-                echo $errorMessage;
+                include(VIEWS . 'error.php');
                 exit();
             }
         }
