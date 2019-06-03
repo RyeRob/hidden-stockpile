@@ -66,54 +66,14 @@ require_once "../includes/Classes/database.php";
     </div>
     <div id="collection-tab" class="col s12 profile-tab">
         <h2>Collection</h2>
-        <table class="container profile-list z-depth-2">
-            <thead>
-                <tr>
-                    <th>Card Name</th>
-                    <th>Set</th>
-                    <th>Quantity</th>
-                    <th>Foil</th>
-                    <th>Price</th>
-                    <th>Watch List</th>
-                </tr>
-            </thead>
-            <tbody>
+        <table id="collection-table" class="container profile-list z-depth-2">
+            
                 <?php //foreach loop
-                $userId = $_SESSION['id'];
-                //echo $userId;
-                $c = new Collection();
-                $collection = $c->listCards($userId);
 
-                foreach ($collection as $card) {
+               // include "../controllers/collection-controller.php";
 
-                    if ($card->foil == true) $card->foil = 'Yes';
-
-                    $id = $card->id;
-                    //Change watchlist button
-                    if ($card->watch_list == true) {
-                        $watchBtn = "<form action='../controllers/collection-controller.php' method='POST'>
-                        <input type='hidden' name='id' value='$id' />
-                        <button type='submit' name='watchRemoveBtn' class='watchRemoveBtn'>REMOVE</button>
-                        </form>";
-                    } else {
-                        $watchBtn = "<form action='../controllers/collection-controller.php' method='POST'>
-                        <input type='hidden' name='id' value='$id' />
-                        <button type='submit' name='watchAddBtn' class='watchAddBtn'>ADD</button>
-                        </form>";
-                    }
-
-
-                    echo "<tr>
-                           <td>$id</td>
-                           <td>$card->set</td>
-                           <td>$card->quantity</td>
-                           <td>$card->foil</td>
-                           <td>" . "$" . "$card->price</td>
-                           <td>" . $watchBtn . "</td>
-                           </tr>";
-                }
                 ?>
-            </tbody>
+          
         </table>
     </div>
     <div id="watchlist-tab" class="col s12 profile-tab">
