@@ -1,13 +1,13 @@
 <?php
 class Database
 {
-    // private static $user = 'delanh_stockpile';
-    // private static $pass = '9#q8nJ*b@8^b';
-    // private static $dsn = 'mysql:host=198.46.191.78; dbname=hiddenstockpile';
+    private static $user = 'delanh_stockpile';
+    private static $pass = '{Z{*@(-Fd(qy';
+    private static $dsn = 'mysql:host=198.46.191.78; dbname=delanh_hiddenstockpile';
 
-    private static $user = 'root';
-    private static $pass = '';
-    private static $dsn = 'mysql:host=localhost; dbname=hiddenstockpile';
+    // private static $user = 'root';
+    // private static $pass = '';
+    // private static $dsn = 'mysql:host=localhost; dbname=hiddenstockpile';
     private static $dbcon;
 
     private function __construct()
@@ -20,7 +20,8 @@ class Database
                 self::$dbcon->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             } catch (PDOException $e) {
                 $errorMessage = $e->getMessage();
-                include 'error.php';
+                // include 'error.php';
+                echo $errorMessage;
                 exit();
             }
         }

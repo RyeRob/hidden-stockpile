@@ -9,12 +9,19 @@ ini_set('memory_limit', '-1');
 // unpacking the json
 // $json = file_get_contents("AllSets.json");
 // $sets = json_decode($json);
-$json = file_get_contents("AllCards.json");
-$cards = json_decode($json);
+// $json = file_get_contents("AllCards.json");
+// $cards = json_decode($json);
 
 // connect to DB
 require_once('../includes/Classes/database.php');
 $dbcon = Database::getDb();
+
+$sqls = "SELECT * FROM sets WHERE code = 'RNA'";
+$pst = $dbcon->prepare($sqls);
+$pst->execute();
+$set = $pst->fetch(PDO::FETCH_OBJ);
+
+var_dump($set);
 
 // add all sets
 // foreach($sets as $s) {
