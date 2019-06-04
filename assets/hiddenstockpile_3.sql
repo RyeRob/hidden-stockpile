@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 02, 2019 at 10:51 PM
+-- Generation Time: Jun 04, 2019 at 03:46 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -61933,8 +61933,8 @@ CREATE TABLE `card_collection` (
 --
 
 INSERT INTO `card_collection` (`id`, `name`, `set`, `quantity`, `foil`, `price`, `watch_list`, `user_id`) VALUES
-(1, 'test', 'test', 3, 1, '1', 0, 1),
-(2, 'tert', 'te', 4, 1, '1', 1, 1);
+(3, 'Hidden Stockpile', 'Ravnica', 2, 1, '1', 0, 1),
+(4, 'Black Lotus', 'Beta', 12, 1, '11', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -62482,7 +62482,7 @@ ALTER TABLE `cards_sets`
 -- AUTO_INCREMENT for table `card_collection`
 --
 ALTER TABLE `card_collection`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `sets`

@@ -67,30 +67,13 @@ require_once "../includes/Classes/database.php";
     <div id="collection-tab" class="col s12 profile-tab">
         <h2>Collection</h2>
         <table id="collection-table" class="container profile-list z-depth-2">
-            
-                <?php //foreach loop
 
-               // include "../controllers/collection-controller.php";
-
-                ?>
-          
         </table>
     </div>
     <div id="watchlist-tab" class="col s12 profile-tab">
         <h2>Watch List</h2>
-        <table class="container profile-list z-depth-2">
-            <thead>
-                <tr>
-                    <th>Card Name</th>
-                    <th>Set</th>
-                    <th>Price</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php //foreach loop
+        <table id="watchlist-table" class="container profile-list z-depth-2">
 
-                ?>
-            </tbody>
         </table>
     </div>
 </div>

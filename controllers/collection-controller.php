@@ -20,12 +20,15 @@ if (isset($_POST['flag']) && ($_SESSION['id'])) {
         $updateWatchList = $c->updateWatchList($id, false);
     }
 
-
+     //Delete card from Collection
+     if ($flag == "delete") {
+        $id = $_POST['id'];
+        $deleteCard = $c->deleteCard($id);
+    }
+    
     //Print list after changes are made
     if ($flag == "refresh") {
 
-
-        $c = new Collection();
         $collection = $c->listCards($userId);
 
         echo "
@@ -59,13 +62,61 @@ if (isset($_POST['flag']) && ($_SESSION['id'])) {
 
             echo "
                     <tr>
-                    <td>$id</td>
+                    <td>$card->name</td>
                     <td>$card->set</td>
                     <td>$card->quantity</td>
                     <td>$card->foil</td>
                     <td>" . "$" . "$card->price</td>
                     <td>" . $watchBtn . "</td>
+                    <td> 
+                        <form method='POST' id='deleteCard'>
+                            <input type='hidden' name='id' value='$id' />
+                            <button type='submit' class='watchRemoveBtn'>X</button>
+                        </form>
+                    </td>
                     </tr>";
+        }
+        echo "</tbody>";
+    }
+    if ($flag == "removeWatchList") {
+        $id = $_POST['id'];
+        $updateWatchList = $c->updateWatchList($id, false);
+    }
+    //Lists cards in watchlist if watch_list == true
+    if ($flag == "watchlist") {
+
+        $watchlist = $c->listCards($userId);
+
+        echo "
+    <thead>
+        <tr>
+            <th>Card Name</th>
+            <th>Set</th>
+            <th>Quantity</th>
+            <th>Foil</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+<tbody>";
+        foreach ($watchlist as $card) {
+            $id = $card->id;
+            $deleteBtn = "<form method='POST' id='removeWatchList'>
+            <input type='hidden' name='id' value='$id' />
+            <button type='submit' class='watchRemoveBtn'>REMOVE</button>
+            </form>";
+
+            if ($card->watch_list == true) {
+                echo "         
+                    <tr>
+                        <td>$card->name</td>
+                        <td>$card->set</td>
+                        <td>$card->quantity</td>
+                        <td>$card->foil</td>
+                        <td>" . "$" . "$card->price</td>
+                        <td>$deleteBtn</td>
+                
+                    </tr>";
+            }
         }
         echo "</tbody>";
     }
