@@ -1,13 +1,13 @@
 <?php
 class Database
 {
-    private static $user = 'delanh_stockpile';
-    private static $pass = '{Z{*@(-Fd(qy';
-    private static $dsn = 'mysql:host=198.46.191.78; dbname=delanh_hiddenstockpile';
+    // private static $user = 'delanh_stockpile';
+    // private static $pass = '{Z{*@(-Fd(qy';
+    // private static $dsn = 'mysql:host=198.46.191.78; dbname=delanh_hiddenstockpile';
 
-    // private static $user = 'root';
-    // private static $pass = '';
-    // private static $dsn = 'mysql:host=localhost; dbname=hiddenstockpile';
+    private static $user = 'root';
+    private static $pass = '';
+    private static $dsn = 'mysql:host=localhost; dbname=hiddenstockpile';
     private static $dbcon;
 
     private function __construct()

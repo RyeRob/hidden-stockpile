@@ -20,18 +20,20 @@ class Scryfall {
 
     public function getAllPrintedVersionsofCards($name) {
         // find all printed versions of cards based on their name as it is exactly printed
+        $scard = preg_replace('/\s+/', '%20', $name);
         $c = curl_init();
         $header = array(
             "Accept: application/json",
         );
-        curl_setopt($c, CURLOPT_URL, 'https://api.scryfall.com/cards/search?unique=prints&q=!"'.$name.'"');
+        curl_setopt($c, CURLOPT_URL, 'https://api.scryfall.com/cards/search?unique=prints&q=!%22'.$scard.'%22');
+        // curl_setopt($c, CURLOPT_URL, 'https://api.scryfall.com/cards/search?unique=prints&q=!"'.$name.'"');
         curl_setopt($c, CURLOPT_HTTPHEADER, $header);
         curl_setopt($c, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($c, CURLOPT_SSL_VERIFYHOST, false);
         curl_setopt($c, CURLOPT_RETURNTRANSFER, true);
-        $result = json_decode(curl_exec($c));
+        $data = json_decode(curl_exec($c));
         curl_close($c);
-        return $result;
+        return $data;
     }
 
 
