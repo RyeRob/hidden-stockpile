@@ -18,6 +18,22 @@ body {
 .wrap {
     min-height:100vh;
 }
+.btn {
+    background-color: var(--blue);
+}
+.btn:hover {
+    background-color: var(--light-blue);
+}
+/* --- About Page --- */
+.about{
+    min-height:100vh;
+}
+.about > h1 {
+    font-size:1.8rem;
+}
+.about > p {
+    padding:1rem 0;
+}
 /* --- Login Style --- */
 .login {
     width:35vw;

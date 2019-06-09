@@ -1,3 +1,9 @@
+#cardCardsArea {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
 #enterCardsForms {
   max-width: 1200px;
   margin: 0 auto;
@@ -43,12 +49,12 @@
   background: red;
 }
 
-#cardName {
-  width: 400px;
+input[id^="cardName"] {
+  width: 400px !important;
 }
 
-#cardNum {
-  width: 40px;
+input[id^="cardNum"] {
+  width: 40px !important;
 }
 
 .set-dropdown {

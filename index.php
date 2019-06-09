@@ -21,7 +21,6 @@ for( $i = 0; $i < count( $vars ); $i += 2 )
 
 // make the pathing work when it's not in the htdocs root but in a subfolder
 define( 'WEB_ROOT', __DIR__ );
-
 // define( 'WEB_ROOT', $_SERVER['DOCUMENT_ROOT'] );
 define('VIEWS', WEB_ROOT . '/views');
 define('STYLES', WEB_ROOT . '/styles');
