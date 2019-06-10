@@ -120,6 +120,12 @@ $(document).ready(function() {
             let quantity = this[2].value;
             let price = this[3].value;
 
+            console.log(name);
+            console.log(set);
+            console.log(quantity);
+            console.log(price);
+            
+
             $.ajax({
               type: 'POST',
               url: '../controllers/addcardstocollection.php',
