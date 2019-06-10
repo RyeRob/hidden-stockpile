@@ -53,12 +53,12 @@ if (isset($_POST['flag']) && ($_SESSION['id'])) {
             if ($card->watch_list == true) {
                 $watchBtn = "<form method='POST' id='removeWatch'>
                         <input type='hidden' name='id' value='$id' />
-                        <button type='submit' name='watchRemoveBtn' class='watchRemoveBtn'>REMOVE</button>
+                        <button type='submit' name='watchRemoveBtn' class='waves-effect waves-light btn-small red'>REMOVE</button>
                         </form>";
             } else {
                 $watchBtn = "<form method='POST' id='addWatch'>
                         <input type='hidden' name='id' value='$id' />
-                        <button type='submit' name='watchAddBtn' class='watchAddBtn'>ADD</button>
+                        <button type='submit' name='watchAddBtn' class='waves-effect waves-light btn-small'>ADD</button>
                         </form>";
             }
 
@@ -73,7 +73,7 @@ if (isset($_POST['flag']) && ($_SESSION['id'])) {
                     <td> 
                         <form method='POST' id='deleteCard'>
                             <input type='hidden' name='id' value='$id' />
-                            <button type='submit' class='watchRemoveBtn'>X</button>
+                            <button type='submit' class='btn-floating btn-small waves-effect waves-light red'>X</button>
                         </form>
                     </td>
                     </tr>";
@@ -104,7 +104,7 @@ if (isset($_POST['flag']) && ($_SESSION['id'])) {
             $id = $card->id;
             $deleteBtn = "<form method='POST' id='removeWatchList'>
             <input type='hidden' name='id' value='$id' />
-            <button type='submit' class='watchRemoveBtn'>REMOVE</button>
+            <button type='submit' class='btn-floating btn-small waves-effect waves-light red'>X</button>
             </form>";
 
             if ($card->watch_list == true) {
