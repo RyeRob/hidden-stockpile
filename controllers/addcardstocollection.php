@@ -15,9 +15,16 @@ $set = $_POST['set'];
 $quantity = (int)$_POST['quantity'];
 $price = $_POST['price'];
 
-$col = new Collection;
+// $sql = "INSERT INTO card_collection (name, set, quantity, foil, price, watch_list, user_id) 
+//     VALUES (:name, :set, :quantity, 0, :price, 0, :user_id) ";
+// $pst = $db->prepare($sql);
+// $pst->bindParam(':name',$name);
+// $pst->bindParam(':set',$set);
+// $pst->bindParam(':quantity',$quantity);
+// $pst->bindParam(':price',$price);
+// $pst->bindParam(':user_id',$user_id);
+// $count = $pst->execute();
 
-$count = $col->addCards($name, $set, $quantity, false, $price, false, $user_id);
 
 if ($count) {
     return true;

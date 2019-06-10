@@ -7,9 +7,10 @@
     </ul>
     <ul class="nav-login">
         <?php
+       // Welcome, ".$_SESSION['username']."
             if(isset($_SESSION['id']))
             {
-                echo "<li><a href='/views/profile.php'>Welcome, ".$_SESSION['username']."</a></li>";
+                echo "<li><a href='/views/profile.php'>Profile</a></li>";
                 echo "<li><a href='/controllers/logout.php'>Logout</a></li>";
             }
             else
