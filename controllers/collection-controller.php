@@ -9,6 +9,7 @@ $c = new Collection();
 if (isset($_POST['flag']) && ($_SESSION['id'])) {
 
     $userId = $_SESSION['id'];
+    // echo '<h1>' . $userId . '</h1>';
     $flag = $_POST['flag'];
     //Update Watch List
     if ($flag == "add") {
@@ -20,16 +21,17 @@ if (isset($_POST['flag']) && ($_SESSION['id'])) {
         $updateWatchList = $c->updateWatchList($id, false);
     }
 
-     //Delete card from Collection
-     if ($flag == "delete") {
+    //Delete card from Collection
+    if ($flag == "delete") {
         $id = $_POST['id'];
         $deleteCard = $c->deleteCard($id);
     }
-    
+
     //Print list after changes are made
     if ($flag == "refresh") {
 
         $collection = $c->listCards($userId);
+
 
         echo "
         <thead>
@@ -119,5 +121,53 @@ if (isset($_POST['flag']) && ($_SESSION['id'])) {
             }
         }
         echo "</tbody>";
+    }
+    //top lists on dashboard
+    if ($flag == "topowned") {
+
+        $list = $c->topList($userId);
+
+        echo "
+    <thead>
+        <tr>
+            <th>Card Name</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+<tbody>";
+        foreach ($list as $card) {
+            echo "         
+                    <tr>
+                        <td>$card->name</td>
+                        <td>" . "$" . "$card->price</td>
+                
+                    </tr>";
+        }
+        echo "</tbody>";
+    }
+
+    if ($flag == "topwatch") {
+
+        $list = $c->topList($userId);
+
+        echo "
+    <thead>
+        <tr>
+            <th>Card Name</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+<tbody>";
+        foreach ($list as $card) {
+            if ($card->watch_list == true) {
+                echo "         
+                    <tr>
+                        <td>$card->name</td>
+                        <td>" . "$" . "$card->price</td>
+                
+                    </tr>";
+            }
+            echo "</tbody>";
+        }
     }
 }

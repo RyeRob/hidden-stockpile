@@ -16,48 +16,21 @@ require_once "../includes/Classes/database.php";
     <div id="dashboard-tab" class="col s12 profile-tab">
         <div class="container">
             <h2>Dashboard</h2>
+
             <div class="row">
                 <div class="col s6 m6 l6">
                     <div class="dash-list z-depth-2">
                         <h3>Top Owned</h3>
-                        <table class="container">
-                            <thead>
-                                <tr>
-                                    <th>Card Name</th>
-                                    <th>Change</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php //foreach loop
-                                echo
-                                    '<tr>
-                                        <td>Hidden Stockpile</td>
-                                        <td>$0.50</td>
-                                    </tr>'
-                                ?>
-                            </tbody>
+                        <table id="top-owned" class="container">
+      
                         </table>
                     </div>
                 </div>
                 <div class="col s6 m6 l6">
                     <div class="dash-list z-depth-2">
                         <h3>Top Watching</h3>
-                        <table class="container">
-                            <thead>
-                                <tr>
-                                    <th>Card Name</th>
-                                    <th>Change</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php //foreach loop
-                                echo
-                                    '<tr>
-                                        <td>Hidden Stockpile</td>
-                                        <td>$0.50</td>
-                                    </tr>'
-                                ?>
-                            </tbody>
+                        <table id="top-watched" class="container">
+                           
                         </table>
                     </div>
                 </div>

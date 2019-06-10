@@ -40,6 +40,18 @@ class Collection
         return $pst->fetchAll(\PDO::FETCH_OBJ);
     }
 
+    //top owned list cards
+    public function topList($user_id)
+    {
+        $query = "SELECT * FROM card_collection WHERE user_id = :user_id ORDER BY price DESC";
+
+        $pst = $this->db->prepare($query);
+        $pst->bindParam(':user_id', $user_id);
+        $pst->execute();
+
+        return $pst->fetchAll(\PDO::FETCH_OBJ);
+    }
+
     //delete  cards
     public function deleteCard($id)
     {
