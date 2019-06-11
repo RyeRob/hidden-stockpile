@@ -51,16 +51,17 @@ if (isset($_POST['flag']) && ($_SESSION['id'])) {
         foreach ($collection as $card) {
             if ($card->isfoil == true) $card->isfoil = 'Yes';
             //Change watchlist button
+            $colid = $card->id;
             $id = $card->card_set_id;
 
             if ($card->watch_list == true) {
                 $watchBtn = "<form method='POST' id='removeWatch'>
-                        <input type='hidden' name='id' value='$id' />
+                        <input type='hidden' name='id' value='$colid' />
                         <button type='submit' name='watchRemoveBtn' class='waves-effect waves-light btn-small red'>REMOVE</button>
                         </form>";
             } else {
                 $watchBtn = "<form method='POST' id='addWatch'>
-                        <input type='hidden' name='id' value='$id' />
+                        <input type='hidden' name='id' value='$colid' />
                         <button type='submit' name='watchAddBtn' class='waves-effect waves-light btn-small'>ADD</button>
                         </form>";
             }
@@ -111,10 +112,11 @@ if (isset($_POST['flag']) && ($_SESSION['id'])) {
     </thead>
 <tbody>";
         foreach ($watchlist as $card) {
+            $colid = $card->id;
             $id = $card->card_set_id;
 
             $deleteBtn = "<form method='POST' id='removeWatchList'>
-            <input type='hidden' name='id' value='$id' />
+            <input type='hidden' name='id' value='$colid' />
             <button type='submit' class='btn-floating btn-small waves-effect waves-light red'>X</button>
             </form>";
 

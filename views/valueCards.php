@@ -12,18 +12,18 @@ include(WEB_ROOT . '/views/partials/menu.php');
     <form action="#" method="post" id="cardFieldForm" name="cardFieldForm">
         <div id="formDiv">
         <div class="formRow0">
-            <input type="text" id="cardName0" name="cardName0" class="autocomplete" />
+            <input type="text" id="cardName0" name="cardName0" class="autocomplete validate" required="" aria-required="true" />
             
             <div class="input-field  col s12 set-dropdown">
-                <select id="cardSet0">
+                <select id="cardSet0" required="" aria-required="true">
                     <option value="" disabled selected>---</option>
                 </select>
                 <label>Card Set</label>        
             </div>
-            <input type="number" id="cardNum0" name="cardNum0" />
+            <input type="number" id="cardNum0" name="cardNum0" value="1" class="validate" required="" aria-required="true" />
             <div id="foil-container">
                 <label for="foil-box">
-                    <input type="checkbox" name="foil" class="foil-box" id="foil-box0" />
+                    <input type="checkbox" name="foil" class="foil-box" id="foil-box0" disabled />
                     <span id="foil-label">Foil</span>
                 </label>
             </div>

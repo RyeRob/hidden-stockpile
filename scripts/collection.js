@@ -52,6 +52,7 @@ $(document).ready(function () {
     let id = $(this)
       .find("input[name='id']")
       .val();
+    // alert(id);
     $.post(
       "../controllers/collection-controller.php", {
         id: id,

@@ -26,16 +26,16 @@ $(document).ready(function() {
     i++;
     $("#formDiv").append(
       `<div class="formRow`+i+`">
-        <input type="text" id="cardName`+i+`" name="cardName`+i+`" class="autocomplete" />
+        <input type="text" id="cardName`+i+`" name="cardName`+i+`" class="autocomplete validate" required="" aria-required="true" />
         <div class="input-field col s12 set-dropdown">
-            <select id="cardSet`+i+`">
+            <select id="cardSet`+i+`" required="" aria-required="true">
                 <option value="" disabled selected>---</option>
             </select>
         </div>
-        <input type="number" id="cardNum`+i+`" name="cardNum`+i+`" />
+        <input type="number" id="cardNum`+i+`" name="cardNum`+i+`" value="1" class="validate" required="" aria-required="true" />
         <div id="foil-container">
             <label for="foil-box `+i+`">
-                <input type="checkbox" name="foil" class="foil-box" id="foil-box`+i+`" />
+                <input type="checkbox" name="foil" class="foil-box" id="foil-box`+i+`" disabled />
                 <span id="foil-label">Foil</span>
             </label>
         </div>    
@@ -80,6 +80,38 @@ $(document).ready(function() {
     }
   });
 
+  // add cards to collection function
+  function addCardstoCollection(e) {
+    e.preventDefault();
+
+    let cardsetid = this[0].value;
+    let name = this[1].value;
+    let set = this[2].value;
+    let quantity = this[3].value;
+    let price = this[4].value;
+
+    console.log(cardsetid);
+    console.log(name);
+    console.log(set);
+    console.log(quantity);
+    console.log(price);
+    
+
+    $.ajax({
+      type: 'POST',
+      url: '../controllers/addcardstocollection.php',
+      data: { cardsetid: cardsetid, name: name, set: set, quantity: quantity, price: price },
+      success: function(msg) {
+        console.log(msg);
+        M.toast({html: 'Added cards to your collection!'})
+      }
+    });
+  }
+
+  // $('#addMyCard'+i).on('submit',function(e){
+
+  // });
+
   // fetch card prices and display them as placards
   $('#cardFieldForm').on('submit',function(e){
     e.preventDefault();
@@ -108,34 +140,17 @@ $(document).ready(function() {
         success: function(card) {
           cards.innerHTML += card;
           document.getElementById('addMyCard').setAttribute('id','addMyCard'+i);
+          document.getElementById('myPrintingId').setAttribute('id','myPrintingId'+i);
           document.getElementById('myCardName').setAttribute('id','myCardName'+i);
           document.getElementById('myCardSet').setAttribute('id','myCardSet'+i);
           document.getElementById('myCardQuantity').setAttribute('id','myCardQuantity'+i);
           document.getElementById('myCardPrice').setAttribute('id','myCardPrice'+i);
-          $('#addMyCard'+i).on('submit',function(e){
-            e.preventDefault();
-
-            let name = this[0].value;
-            let set = this[1].value;
-            let quantity = this[2].value;
-            let price = this[3].value;
-
-            console.log(name);
-            console.log(set);
-            console.log(quantity);
-            console.log(price);
-            
-
-            $.ajax({
-              type: 'POST',
-              url: '../controllers/addcardstocollection.php',
-              data: { name: name, set: set, quantity: quantity, price: price },
-              success: function(msg) {
-                console.log(msg);
-                M.toast({html: 'Added cards to your collection!'})
-              }
-            });
-          });
+          
+          let pricedcards = document.querySelectorAll('*[id^="addMyCard"]');
+          console.log('# of priced cards: '+pricedcards.length);
+          for(let i = 0; i < pricedcards.length; i++) {
+            document.querySelector("#addMyCard"+i).addEventListener('submit',addCardstoCollection);
+          }
         }
       });
       
