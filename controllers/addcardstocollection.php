@@ -9,25 +9,20 @@ include(WEB_ROOT . '/includes/Classes/collection.php');
 
 $db = Database::getDb();
 
+$card_set_id = $_POST['cardsetid'];
 $user_id = $_SESSION['id'];
 $name = $_POST['name'];
 $set = $_POST['set'];
 $quantity = (int)$_POST['quantity'];
 $price = $_POST['price'];
 
-// $sql = "INSERT INTO card_collection (name, set, quantity, foil, price, watch_list, user_id) 
-//     VALUES (:name, :set, :quantity, 0, :price, 0, :user_id) ";
-// $pst = $db->prepare($sql);
-// $pst->bindParam(':name',$name);
-// $pst->bindParam(':set',$set);
-// $pst->bindParam(':quantity',$quantity);
-// $pst->bindParam(':price',$price);
-// $pst->bindParam(':user_id',$user_id);
-// $count = $pst->execute();
 
+$sql = "INSERT INTO collections (user_id, card_set_id, quantity, isfoil, watch_list, price) VALUES (:user_id, :card_set_id, :quantity, 0, 0, :price) ";
+$pst = $db->prepare($sql);
+$pst->bindParam(':user_id',$user_id);
+$pst->bindParam(':card_set_id',$card_set_id);
+$pst->bindParam(':quantity',$quantity);
+$pst->bindParam(':price',$price);
+$count = $pst->execute();
 
-if ($count) {
-    return true;
-} else {
-    return false;
-}
+return $count;
