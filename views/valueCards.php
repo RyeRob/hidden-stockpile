@@ -4,6 +4,9 @@ include(WEB_ROOT . '/views/partials/header.php');
 include(WEB_ROOT . '/views/partials/menu.php');
 ?>
 
+<div id="cardsSummary">
+</div>
+
 <div id="cardCardsArea">
 </div>
 

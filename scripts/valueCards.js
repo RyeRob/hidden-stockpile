@@ -112,6 +112,44 @@ $(document).ready(function() {
 
   // });
 
+  function makeSummaryCard() {
+    $("#cardsSummary").addClass("card");
+
+    let cardval = document.getElementsByClassName("cardprice");
+    let cardquant = document.getElementsByClassName("cardquantity");
+
+    console.log(cardval.length);
+    console.log(cardquant.length);
+
+    var sum = 0;
+    var quant = 0;
+
+    for (let x = 0; x < cardval.length; x++) {
+      let s = cardval[x].innerHTML;
+      console.log('jio');
+      sum = sum + s.toFixed(2);
+    }
+
+    for (let y = 0; y < cardquant.length; y++) {
+      let s = parseInt(cardquant[y].innerHTML);
+      console.log('asdasd');
+      quant = quant + s;
+    }
+
+    // console.log(sum);
+    // console.log(quant);
+
+    $("#cardsSummary").html(`
+      <div class="card-content">
+        <p>You have <span id="countcards"></span> cards worth approximately $<span id="sumval"></span>.
+      </div>
+    `);
+
+    $('#countcards').html(quant);
+    $('#sumval').html(sum);
+
+  }
+
   // fetch card prices and display them as placards
   $('#cardFieldForm').on('submit',function(e){
     e.preventDefault();
@@ -156,8 +194,8 @@ $(document).ready(function() {
       
     }
 
+    // makeSummaryCard();
+
   });
-
-
 
 });

@@ -49,8 +49,8 @@ foreach($data->data as $p) {
                 <div class="card-stacked">
                     <div class="card-content">
                     <span class="card-title">'.$p->name.'</span>
-                    <p>'.$p->set_name.' || $'.$p->prices->usd.'</p>
-                    <p>You own '.$quantity.'x</p>
+                    <p>'.$p->set_name.' || $<span class="cardprice">'.$p->prices->usd.'</span></p>
+                    <p>You own <span class="cardquantity">'.$quantity.'</span> copies of this card.</p>
                     </div>
                     <div class="card-action">'.
                     $addform
