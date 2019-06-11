@@ -65,7 +65,15 @@ body {
     margin:0;
 }
 
-.login button {
+.btn {
+    background-color:var(--blue);
+}
+
+.btn:hover {
+    background-color: var(--dark-blue);
+}
+
+.btn:focus {
     background-color:var(--blue);
 }
 
@@ -75,10 +83,6 @@ body {
 
 .login > div > a {
     background-color:var(--blue);
-}
-
-.login button:hover {
-    background-color: var(--dark-blue);
 }
 
 .login > div > a:hover {

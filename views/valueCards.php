@@ -30,8 +30,14 @@ include(WEB_ROOT . '/views/partials/menu.php');
                     <span id="foil-label">Foil</span>
                 </label>
             </div>
+<<<<<<< HEAD
+
+
+            <button type="button" class="addCardBtn btn-floating btn-small waves-effect waves-light btn"><i class="material-icons">+</i></button>
+=======
             <button type="button" class="addCardBtn btn-floating btn-small waves-effect waves-light blue"><i class="material-icons">+</i></button>
         </div>
+>>>>>>> 433a26f214f23e6b9ac8675d726d9646e588785a
         </div>
         <button type="submit" name="submitCardsBtn" class="btn waves-effect waves-light" id="submitCardsBtn">Submit</button>
     </form>
