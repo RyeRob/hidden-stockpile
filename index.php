@@ -30,4 +30,3 @@ include( WEB_ROOT.'/includes/config.php' );
 include( WEB_ROOT.'/includes/functions.php' );
 
 include( WEB_ROOT.'/views/'.$page );
-

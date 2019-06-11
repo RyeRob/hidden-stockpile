@@ -1,17 +1,22 @@
+@font-face {
+    font-family: 'Magic';
+    src:url('../images/MAGIC.TTF') format('truetype');
+}
 *{
-    /* Custom Properties */
     --light-blue:#63ccff;
     --blue:#039be5;
     --dark-blue: #006db3;
     --sand:#fff3e0;
     --dark-sand:#ccc0ae;
-    /* General Styles */
     box-sizing:border-box;
     padding:0;
     margin:0;
     font-family: Montserrat, Helvetica, Arial, sans-serif;
 }
-
+h1, h2 , h3 {
+    font-family: Magic;
+    text-align:center;
+}
 body {
     background-color:#fff3e0;
 }
@@ -50,13 +55,11 @@ body {
     border-bottom: 1px solid var(--light-blue);
     box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
 }
-
 #cancel {
     display:inline;
     padding: 0.6rem 1rem;
     margin-left:1rem;
 }
-
 .login-title {
     text-align:center;
     padding-top:3rem;
@@ -64,37 +67,35 @@ body {
     font-size:3rem;
     margin:0;
 }
-
 .btn {
     background-color:var(--blue);
 }
-
 .btn:hover {
     background-color: var(--dark-blue);
 }
-
 .btn:focus {
     background-color:var(--blue);
 }
-
 .login > div > label {
     color:#000;
 }
-
 .login > div > a {
     background-color:var(--blue);
 }
-
 .login > div > a:hover {
     background-color: var(--dark-blue);
 }
-
 .input:focus {
     border-bottom: 1px solid var(--blue);
     box-shadow: 0 1px 0 0 var(--blue);
 }
-
-#fname:focus, #lname:focus, #email:focus, #username:focus, #password:focus {
+#fname:focus, 
+#lname:focus, 
+#email:focus, 
+#username:focus, 
+#password:focus,
+#repeatPassword:focus,
+*[id^="cardNum"]:focus {
     border-bottom: 1px solid var(--blue);
     box-shadow: 0 1px 0 0 var(--blue);
 }
