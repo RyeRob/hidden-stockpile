@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Magic';
-    src:url('../images/MAGIC.TTF') format('truetype');
+    src:url('../assets/MAGIC.TTF') format('truetype');
 }
 *{
     --light-blue:#63ccff;
@@ -13,15 +13,17 @@
     margin:0;
     font-family: Montserrat, Helvetica, Arial, sans-serif;
 }
-h1, h2 , h3 {
+h1, h2, h3 {
     font-family: Magic;
     text-align:center;
+    padding-top:3rem;
 }
 body {
     background-color:#fff3e0;
 }
 .wrap {
     min-height:100vh;
+    background-color:#fff;
 }
 .btn {
     background-color: var(--blue);
@@ -31,13 +33,13 @@ body {
 }
 /* --- About Page --- */
 .about{
-    min-height:100vh;
+    min-height:70vh;
 }
 .about > h1 {
-    font-size:1.8rem;
+    font-size:2.5rem;
 }
 .about > p {
-    padding:1rem 0;
+    padding:1rem 10rem;
 }
 /* --- Login Style --- */
 .login {
@@ -95,15 +97,15 @@ body {
 #username:focus, 
 #password:focus,
 #repeatPassword:focus,
-*[id^="cardNum"]:focus {
+input[id^='cardNum']:focus {
     border-bottom: 1px solid var(--blue);
     box-shadow: 0 1px 0 0 var(--blue);
 }
 /* --- Profile Style --- */
 .profile-list {
     background-color:#fff;
-    
 }
+
 /* Tabs */
 .container h2 {
     text-align:center;
@@ -151,7 +153,22 @@ footer {
     height:60px;
     background-color: var(--dark-sand);
     text-align:center;
+    margin-top:7rem;
 }
 footer > p {
     padding-top:1rem;
+}
+.imagecontainer {
+    border-radius: 10px;
+    margin:0 auto;
+    margin-top:5rem;
+    height:40vh;
+    width: 60vw;
+    background:url(../images/landing.jpg) no-repeat center center/cover;
+}
+.landingcontainer {
+    text-align:center;
+}
+.landingcontainer > p {
+    padding-bottom:3rem;
 }

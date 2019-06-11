@@ -2,8 +2,8 @@
 //Start our session
 session_start();
 define( 'WEB_ROOT', $_SERVER['DOCUMENT_ROOT'] );
-include(WEB_ROOT.'/includes/Classes/database.php');
-include(WEB_ROOT.'/includes/Classes/user.php');
+include('WEB_ROOT'.'/includes/Classes/database.php');
+include('WEB_ROOT'.'/includes/Classes/user.php');
 
 //Messages when there is an error logging in or if login is successful
 $_SESSION['ErrorMessage'] = '';

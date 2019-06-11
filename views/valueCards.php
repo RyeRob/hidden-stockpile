@@ -15,7 +15,9 @@ include(WEB_ROOT . '/views/partials/menu.php');
     <form action="#" method="post" id="cardFieldForm" name="cardFieldForm">
         <div id="formDiv">
             <div class="formRow0">
-                <input type="text" id="cardName0" name="cardName0" class="autocomplete validate" required="" aria-required="true" />
+
+                <input type="text" id="cardName0" name="cardName0" class="autocomplete validate" 
+                required="" aria-required="true" />
                 
                 <div class="input-field  col s12 set-dropdown">
                     <select id="cardSet0" required="" aria-required="true">
@@ -23,7 +25,10 @@ include(WEB_ROOT . '/views/partials/menu.php');
                     </select>
                     <label>Card Set</label>        
                 </div>
-                <input type="number" id="cardNum0" name="cardNum0" value="1" class="validate" required="" aria-required="true" />
+
+                <input type="number" id="cardNum0" name="cardNum0" value="1" class="validate" 
+                required="" aria-required="true" />
+
                 <div id="foil-container">
                     <label for="foil-box">
                         <input type="checkbox" name="foil" class="foil-box" id="foil-box0" disabled />
@@ -32,8 +37,14 @@ include(WEB_ROOT . '/views/partials/menu.php');
                 </div>
             </div>
         </div>
-        <button type="button" class="addCardBtn btn-floating btn-small waves-effect waves-light btn"><i class="material-icons">+</i></button>
-        <button type="submit" name="submitCardsBtn" class="btn waves-effect waves-light" id="submitCardsBtn">Submit</button>
+        <button type="button" class="addCardBtn btn-floating btn-small waves-effect waves-light btn">
+            <i class="material-icons">+</i>
+        </button>
+
+        <button type="submit" name="submitCardsBtn" class="btn waves-effect waves-light" 
+            id="submitCardsBtn"> Submit
+        </button>
+
     </form>
 </div>
 <?php include(WEB_ROOT . '/views/partials/footer.php'); ?>
