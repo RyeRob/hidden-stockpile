@@ -3,8 +3,11 @@ session_write_close();
 session_start();
 require_once "../includes/Classes/collection.php";
 require_once "../includes/Classes/database.php";
+require_once '../includes/functions.php';
 
-$c = new Collection();
+$db = Database::getDb();
+$c = new Collection;
+$cs = new Cards_Sets;
 
 if (isset($_POST['flag']) && ($_SESSION['id'])) {
 
@@ -32,7 +35,6 @@ if (isset($_POST['flag']) && ($_SESSION['id'])) {
 
         $collection = $c->listCards($userId);
 
-
         echo "
         <thead>
             <tr>
@@ -47,9 +49,10 @@ if (isset($_POST['flag']) && ($_SESSION['id'])) {
     <tbody>";
 
         foreach ($collection as $card) {
-            if ($card->foil == true) $card->foil = 'Yes';
+            if ($card->isfoil == true) $card->isfoil = 'Yes';
             //Change watchlist button
-            $id = $card->id;
+            $id = $card->card_set_id;
+
             if ($card->watch_list == true) {
                 $watchBtn = "<form method='POST' id='removeWatch'>
                         <input type='hidden' name='id' value='$id' />
@@ -62,12 +65,19 @@ if (isset($_POST['flag']) && ($_SESSION['id'])) {
                         </form>";
             }
 
+            $cardsetids = $cs->getCardIdandSetId($id,$db);
+            $cardname = $cs->getCardName($cardsetids[0]->card_id,$db);
+            $cardset = $cs->getSetName($cardsetids[0]->set_id,$db);
+
+            $cname = $cardname[0]->name;
+            $cset = $cardset[0]->name;
+
             echo "
                     <tr>
-                    <td>$card->name</td>
-                    <td>$card->set</td>
+                    <td>$cname</td>
+                    <td>$cset</td>
                     <td>$card->quantity</td>
-                    <td>$card->foil</td>
+                    <td>$card->isfoil</td>
                     <td>" . "$" . "$card->price</td>
                     <td>" . $watchBtn . "</td>
                     <td> 
@@ -101,17 +111,25 @@ if (isset($_POST['flag']) && ($_SESSION['id'])) {
     </thead>
 <tbody>";
         foreach ($watchlist as $card) {
-            $id = $card->id;
+            $id = $card->card_set_id;
+
             $deleteBtn = "<form method='POST' id='removeWatchList'>
             <input type='hidden' name='id' value='$id' />
             <button type='submit' class='btn-floating btn-small waves-effect waves-light red'>X</button>
             </form>";
 
             if ($card->watch_list == true) {
+                $cardsetids = $cs->getCardIdandSetId($id,$db);
+                $cardname = $cs->getCardName($cardsetids[0]->card_id,$db);
+                $cardset = $cs->getSetName($cardsetids[0]->set_id,$db);
+    
+                $cname = $cardname[0]->name;
+                $cset = $cardset[0]->name;
+
                 echo "         
                     <tr>
-                        <td>$card->name</td>
-                        <td>$card->set</td>
+                        <td>$cname</td>
+                        <td>$cset</td>
                         <td>$card->quantity</td>
                         <td>$card->foil</td>
                         <td>" . "$" . "$card->price</td>
@@ -136,9 +154,14 @@ if (isset($_POST['flag']) && ($_SESSION['id'])) {
     </thead>
 <tbody>";
         foreach ($list as $card) {
+            $id = $card->card_set_id;
+            $cardsetids = $cs->getCardIdandSetId($id,$db);
+            $cardname = $cs->getCardName($cardsetids[0]->card_id,$db);
+            $cname = $cardname[0]->name;
+
             echo "         
                     <tr>
-                        <td>$card->name</td>
+                        <td>$cname</td>
                         <td>" . "$" . "$card->price</td>
                 
                     </tr>";
@@ -160,9 +183,14 @@ if (isset($_POST['flag']) && ($_SESSION['id'])) {
 <tbody>";
         foreach ($list as $card) {
             if ($card->watch_list == true) {
+                $id = $card->card_set_id;
+                $cardsetids = $cs->getCardIdandSetId($id,$db);
+                $cardname = $cs->getCardName($cardsetids[0]->card_id,$db);
+                $cname = $cardname[0]->name;
+
                 echo "         
                     <tr>
-                        <td>$card->name</td>
+                        <td>$cname</td>
                         <td>" . "$" . "$card->price</td>
                 
                     </tr>";

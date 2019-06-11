@@ -12,9 +12,14 @@ $set = $_POST['set'];
 $quantity = (int) $_POST['quantity'];
 
 $sf = new Scryfall;
+$cs = new Cards_Sets;
+
 $data = $sf->getAllPrintedVersionsofCards($name);
 
 // retrieve printing id and pass it into form below
+$nameid = $cs->getCardId($name,$db);
+$setid = $cs->getSetId($set,$db);
+$printingid = $cs->getCardSetId($nameid[0]->id,$setid[0]->id,$db);
 
 $card = '';
 
@@ -24,7 +29,7 @@ foreach($data->data as $p) {
             if(isset($_SESSION['id'])){
                 $addform = '
                 <form id="addMyCard" action="#" method="post">
-                <input type="hidden" id="myPrintingId" value="'.$printingid.'" />
+                <input type="hidden" id="myPrintingId" value="'.$printingid[0]->id.'" />
                 <input type="hidden" id="myCardName" value="'.$name.'" />
                 <input type="hidden" id="myCardSet" value="'.$set.'" />
                 <input type="hidden" id="myCardQuantity" value="'.$quantity.'" />
